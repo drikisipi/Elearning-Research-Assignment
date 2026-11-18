@@ -61,8 +61,6 @@
 ---
 
 ## 4. QUY TẮC PHỐI HỢP GIT ĐƠN GIẢN CHO NHÓM
-
-Vì mỗi bạn phụ trách **file Python riêng biệt**, nhóm không cần quy trình Git phức tạp:
 1. **Nhánh làm việc:** Chỉ cần nhánh `main` và mỗi thành viên tạo 1 nhánh theo tên mình (ví dụ: `loc`, `khang`, `bao`, `viet`, `dat`, `ducanh`) hoặc pull/push sau khi thông báo trong nhóm chat.
 2. **Thống nhất môi trường Python:** Chỉ cần dùng thư viện chuẩn của Python (`socket`, `threading`, `json`, `csv`, `time`, `statistics`) và 2 thư viện ngoài rất nhẹ trong `requirements.txt` là `psutil` (đo CPU) và `matplotlib` (vẽ biểu đồ).
 3. **Không commit file rác:** File `.gitignore` đã được cấu hình sẵn để chặn `__pycache__/`, `.venv/`, `.vscode/`.
