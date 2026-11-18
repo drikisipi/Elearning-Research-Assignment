@@ -6,7 +6,7 @@
 
 ---
 
-## 1. BẢNG PHÂN CÔNG VAI TRÒ & MODULE CHI TIẾT (6 THÀNH VIÊN)
+## 1. BẢNG PHÂN CÔNG VAI TRÒ & MODULE CHI TIẾT 
 
 | STT | Thành viên | Vai trò chính | File / Thư mục phụ trách (`project-root/`) | Công việc Kỹ thuật (Python) vừa sức, rõ ràng | Phần Báo cáo PDF (4–6 trang) & Hồ sơ nộp (`docs/`) |
 | :--: | :--- | :--- | :--- | :--- | :--- |
@@ -19,7 +19,7 @@
 
 ---
 
-## 2. LỘ TRÌNH 4 TUẦN (BÁM SÁT MỤC 7 CỦA ĐỀ BÀI)
+## 2. LỘ TRÌNH 4 TUẦN 
 
 ### Tuần 1: Chốt câu hỏi, phạm vi, protocol, cách đo và dựng Server/Load Generator tối thiểu
 * **Nguyễn Thái Lộc:** Chốt định dạng message 1KB, viết xong `protocol.py` (hàm gửi/nhận đủ byte, chặn gói quá cỡ) và viết nháp Mục 1, Mục 3.1.
@@ -46,7 +46,7 @@
 
 ---
 
-## 3. BẢNG ĐÓNG GÓP THÀNH VIÊN (CHÈN VÀO MỤC 5.6 BÁO CÁO PDF)
+## 3. BẢNG ĐÓNG GÓP THÀNH VIÊN 
 
 | STT | Họ và Tên | Vai trò | Công việc thực hiện cụ thể | Tỷ lệ đóng góp |
 | :--: | :--- | :--- | :--- | :--: |
