@@ -2,7 +2,7 @@
 test_cases.py - Bo kiem thu 5 kich ban chuc nang va xu ly loi cho TCP Echo Server.
 
 Chay (khi server dang chay):
-    py src/load-generator/test_cases.py --host 127.0.0.1 --port 9000
+    py src/load-generator/test_cases_.py --host 127.0.0.1 --port 9000
 
 Giao thuc gia dinh (theo ke hoach nhom): 4-byte do dai (big-endian) + body JSON
 {"requestId": <int|str>, "payload": <str 1KB>}.
