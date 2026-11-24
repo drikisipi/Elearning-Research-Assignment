@@ -87,6 +87,17 @@ def parse_args(argv: Optional[Sequence[str]] = None) -> argparse.Namespace:
         default=None,
         help="Đường dẫn file CSV tùy chọn để lưu log mức sử dụng CPU của server.",
     )
+    parser.add_argument(
+        "--run-id",
+        default=None,
+        help="Mã lần chạy tùy chọn ghi kèm vào file CSV log CPU.",
+    )
+    parser.add_argument(
+        "--client-count",
+        type=int,
+        default=None,
+        help="Số lượng client mục tiêu tùy chọn ghi kèm vào file CSV log CPU.",
+    )
     return parser.parse_args(argv)
 
 
@@ -152,6 +163,8 @@ def monitor_cpu(
     stop_event: threading.Event,
     interval: float,
     cpu_log_path: Optional[str],
+    run_id: Optional[str] = None,
+    client_count: Optional[int] = None,
 ) -> None:
     """Theo dõi và ghi log mức sử dụng % CPU của tiến trình server định kỳ."""
     if interval <= 0:
@@ -170,7 +183,12 @@ def monitor_cpu(
                 os.makedirs(parent_dir, exist_ok=True)
             csv_file = open(cpu_log_path, "w", newline="", encoding="utf-8")
             csv_writer = csv.writer(csv_file)
-            csv_writer.writerow(["timestamp", "elapsed_sec", "cpu_percent", "active_clients"])
+            header = ["timestamp", "elapsed_sec", "cpu_percent", "active_clients"]
+            if run_id is not None:
+                header.append("run_id")
+            if client_count is not None:
+                header.append("client_count")
+            csv_writer.writerow(header)
             csv_file.flush()
 
         while not stop_event.wait(interval):
@@ -185,9 +203,12 @@ def monitor_cpu(
             )
 
             if csv_writer is not None and csv_file is not None:
-                csv_writer.writerow(
-                    [timestamp, f"{elapsed:.3f}", f"{cpu_percent:.2f}", active_clients]
-                )
+                row = [timestamp, f"{elapsed:.3f}", f"{cpu_percent:.2f}", active_clients]
+                if run_id is not None:
+                    row.append(run_id)
+                if client_count is not None:
+                    row.append(client_count)
+                csv_writer.writerow(row)
                 csv_file.flush()
     finally:
         if csv_file is not None:
@@ -200,6 +221,8 @@ def run_server(
     client_timeout: float = DEFAULT_CLIENT_TIMEOUT,
     cpu_interval: float = DEFAULT_CPU_INTERVAL,
     cpu_log_path: Optional[str] = None,
+    run_id: Optional[str] = None,
+    client_count: Optional[int] = None,
     backlog: int = DEFAULT_BACKLOG,
 ) -> None:
     """Khởi tạo TCP socket lắng nghe, tạo luồng xử lý cho từng client và theo dõi CPU."""
@@ -223,7 +246,7 @@ def run_server(
         if cpu_interval > 0:
             cpu_thread = threading.Thread(
                 target=monitor_cpu,
-                args=(state, stop_event, cpu_interval, cpu_log_path),
+                args=(state, stop_event, cpu_interval, cpu_log_path, run_id, client_count),
                 daemon=True,
             )
             cpu_thread.start()
@@ -261,6 +284,8 @@ def main() -> None:
         client_timeout=args.client_timeout,
         cpu_interval=args.cpu_interval,
         cpu_log_path=args.cpu_log,
+        run_id=args.run_id,
+        client_count=args.client_count,
     )
 
 
