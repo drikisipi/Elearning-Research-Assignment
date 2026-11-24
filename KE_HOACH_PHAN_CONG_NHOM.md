@@ -52,8 +52,8 @@
 | :--: | :--- | :--- | :--- | :--: |
 | 1 | **Nguyễn Thái Lộc** *(Nhóm trưởng)* | Protocol & Quản lý chung | Thiết kế protocol, code module phân tách message (`protocol.py`), viết `README.md`, viết Mục 1 & Mục 3.1 báo cáo. | **100%** |
 | 2 | **Nguyễn Tuấn Khang** | TCP Server | Lập trình TCP Server đa Client (`server.py`), xử lý disconnect/timeout/dữ liệu lỗi, đo CPU Server, viết Mục 2 & Mục 3.2. | **100%** |
-| 3 | **Trần Quốc Bảo** | Load Generator | Lập trình công cụ tạo tải (`load_gen.py`), quản lý pha warm-up 5s / đo 20s, kiểm tra `requestId` & payload, viết Mục 3.3 & 4.1. | **100%** |
-| 4 | **Nguyễn Văn Việt** | Kiểm thử & Thực nghiệm | Viết script kiểm thử 5 kịch bản lỗi (`test_cases.py`), tạo file cấu hình, chạy thực nghiệm 1–10–50 Clients (×3 lần), viết Mục 4.2. | **100%** |
+| 3 | **Trần Quốc Bảo** | Load Generator | Lập trình công cụ tạo tải (`load_gen.py`), quản lý pha warm-up 5s / đo 20s, kiểm tra `requestId` & payload, viết Mục 3.3 & 4.1. | **0%** |
+| 4 | **Nguyễn Văn Việt** | Kiểm thử & Thực nghiệm | Viết script kiểm thử 5 kịch bản lỗi (`test_cases.py`), tạo file cấu hình, chạy thực nghiệm 1–10–50 Clients (×3 lần), viết Mục 4.2. | **0%** |
 | 5 | **Lê Tiến Đạt** | Phân tích & Biểu đồ | Viết script kiểm chứng dữ liệu thô (`verify_and_stats.py`) và vẽ biểu đồ (`plot_charts.py`), tính 5 chỉ số & độ dao động, viết Mục 5. | **100%** |
 | 6 | **Trần Đức Anh** | Báo cáo & Slide/Demo | Viết Mục 6 (Phân tích, Giới hạn, Kết luận), Tài liệu tham khảo, tổng hợp báo cáo PDF (4–6 trang) và chuẩn bị Slide/Video demo. | **100%** |
 | **Tổng** | **6 thành viên** | | **Hoàn thành 100% yêu cầu đề bài** | **100%** |
