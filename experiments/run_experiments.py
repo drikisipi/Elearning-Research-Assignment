@@ -1,5 +1,5 @@
 """
-run_experiments.py - Tu dong chay 3 muc (1, 10, 50 client) x 3 lan = 9 lan.
+experiments/run_experiments.py - Tu dong chay 3 muc (1, 10, 50 client) x 3 lan = 9 lan.
 
 Moi lan: bat server moi (kem --cpu-log/--run-id/--client-count) -> chay load_gen -> tat server.
 Dat file nay o: experiments/run_experiments.py
